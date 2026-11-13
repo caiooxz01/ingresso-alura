@@ -1,9 +1,9 @@
 function comprar() {
     // escolhendo o ingresso
     let tipoIngresso = document.getElementById('tipo-ingresso').value;
-    let quantidadeDeCompra = document.getElementById('qtd').value;
+    let quantidadeDeCompra = parseInt(document.getElementById('qtd').value);
 
-    if (quantidadeDeCompra <= 0) {
+    if (quantidadeDeCompra <= 0 || isNaN(quantidadeDeCompra)) {
         alert('Digite um número de ingressos válido');
         return;
     };
@@ -26,7 +26,7 @@ function comprarPista(qtd) {
     } else {
         alert('Compra realizada com sucesso!');
         quantidadePista -= qtd;
-        pista.innerHTML = `<span id="qtd-pista">${quantidadePista}</span>`
+        pista.textContent = quantidadePista
     };
 };
 
@@ -39,7 +39,7 @@ function comprarInferior (qtd) {
     } else {
         alert('Compra realizada com sucesso!');
         quantidadeInferior -= qtd;
-        inferior.innerHTML = `<span id="qtd-inferior">${quantidadeInferior}</span>`
+        inferior.textContent = quantidadeInferior
     };
 };
 
@@ -52,6 +52,7 @@ function comprarSuperior (qtd) {
     } else {
         alert('Compra realizada com sucesso!');
         quantidadeSuperior -= qtd;
-        superior.innerHTML = `<span id="qtd-superior">${quantidadeSuperior}</span>`
+        superior.textContent = quantidadeSuperior;
+
     };
-}
+};
